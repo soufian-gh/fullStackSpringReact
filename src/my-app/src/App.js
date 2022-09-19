@@ -107,9 +107,6 @@ function App() {
                                {student.gender}
                  </p>
      })*/
-
-
-
     return <Layout style={{minHeight: '100vh',}}>
         <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
             <div className="logo" />
