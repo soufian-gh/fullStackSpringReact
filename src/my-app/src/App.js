@@ -1,15 +1,18 @@
 import { getAllStudents } from './client';
 import { useState, useEffect } from "react";
+//import type { SizeType } from 'antd/es/config-provider/SizeContext';
 import './App.css';
 import {
+    PlusSquareOutlined,
     DesktopOutlined,
     FileOutlined,
     PieChartOutlined,
     TeamOutlined,
     UserOutlined,
-    LoadingOutlined,
+    LoadingOutlined, DownloadOutlined,
 } from '@ant-design/icons';
-import { Breadcrumb, Layout, Menu, Table, Spin, Empty } from 'antd';
+import { Breadcrumb, Layout, Menu, Table, Spin, Empty, Button } from 'antd';
+
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -91,22 +94,13 @@ function App() {
             dataSource={students}
             columns={columns}
             bordered
-            title={() => 'Students'}
+            title={() => <Button type="primary" shape="round" icon={<PlusSquareOutlined />} size="small" >Add Student</Button>}
+
             rowKey={(student) => student.id}
         />;
 
     }
-   /* if (students.length <= 0){
-        return "no data to show!"
-    }*/
-     /*return students.map((student, index) =>{
-         return <p key={index}>
-                               {student.id}
-                               {student.name}
-                               {student.email}
-                               {student.gender}
-                 </p>
-     })*/
+
     return <Layout style={{minHeight: '100vh',}}>
         <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
             <div className="logo" />
